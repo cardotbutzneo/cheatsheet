@@ -32,13 +32,13 @@ If you need detailed or official documentation, you should use the official docu
 
 Here are also a couple of useful resources:
 
-Cheatsheets.zip — A collection of programming cheatsheets.
-Koor.fr — French programming resources and documentation.
-Disclaimer: This repository is not official documentation for any of the languages or technologies covered here.
+Cheatsheets.zip — A collection of programming cheatsheets.  
+Koor.fr — French programming resources and documentation...  
+Or just the official documentation for the language you use!  
+Disclaimer: This repository is not official documentation for any of the languages or technologies covered here.  
 I may make mistakes, miss important details, or simplify some concepts for the sake of readability.
-**
 
-When in doubt, always prefer the official documentation.**
+**When in doubt, always prefer the official documentation.**
 
 # Contributing 
 
