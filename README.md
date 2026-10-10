@@ -57,3 +57,28 @@ Sometimes you just need:
 *"How the hell do I sort this thing again?"*
 
 And hopefully somethimes a quick look at a cheat sheet is enough.
+
+# Install the project
+The project is deployed via Github page, follow the following instruction to complete the installation:
+1. clone the directory: 
+```git
+git clone
+```
+
+2. create a virtual environement for python  
+I use uv but you can use python if you want
+```python
+uv sync pyproject.toml
+source <directory_name>/bin/activate
+```
+or :
+```python
+python3 -m venv <directory_name>
+pip install -r requirements.txt
+source <directory_name>/bin/activate
+```
+
+And then,
+```python
+mkdocs serve
+```
