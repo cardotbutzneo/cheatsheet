@@ -1,0 +1,1760 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation">
+      
+      
+      
+      
+        <link rel="prev" href="../../C/start/">
+      
+      
+        <link rel="next" href="../start/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Data structures - Cheatsheet</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-structures-in-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cheatsheet" class="md-header__button md-logo" aria-label="Cheatsheet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cheatsheet
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data structures
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cheatsheet" class="md-nav__button md-logo" aria-label="Cheatsheet" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Cheatsheet
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Cheat Sheets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bash
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bash
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bash/start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C/complex_structs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Complex structs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C/start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data structures
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data structures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-structures-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data structures in Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unit_test/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Unit test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Librairies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Librairies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../librairies/matplotlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matplotlib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../librairies/numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Numpy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../librairies/pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../librairies/yfinance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Yfinance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rust
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Rust
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Rust/start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/command/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pseudo code
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pseudo code
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pseudo-code/start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-structures-in-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data structures in Python
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Data structures</h1>
+
+<h2 id="data-structures-in-python">Data structures in Python</h2>
+<p>Unlike C, Python already ships with powerful built-in data structures (<code>list</code>, <code>tuple</code>, <code>dict</code>, <code>set</code>) and a standard library module <code>collections</code> with more.
+There are no pointers, but every variable is a reference to an object, so we can build linked structures with classes.</p>
+<p><strong>Built-in structures</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Structure</th>
+<th style="text-align: left;">Syntax</th>
+<th style="text-align: left;">Ordered</th>
+<th style="text-align: left;">Mutable</th>
+<th style="text-align: left;">Duplicates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">list</td>
+<td style="text-align: left;"><code>[1, 2, 3]</code></td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">tuple</td>
+<td style="text-align: left;"><code>(1, 2, 3)</code></td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">yes</td>
+</tr>
+<tr>
+<td style="text-align: left;">set</td>
+<td style="text-align: left;"><code>{1, 2, 3}</code></td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">frozenset</td>
+<td style="text-align: left;"><code>frozenset({1, 2})</code></td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">no</td>
+<td style="text-align: left;">no</td>
+</tr>
+<tr>
+<td style="text-align: left;">dict</td>
+<td style="text-align: left;"><code>{"a": 1}</code></td>
+<td style="text-align: left;">yes (insertion order, since Python 3.7)</td>
+<td style="text-align: left;">yes</td>
+<td style="text-align: left;">unique keys</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-python">point = (3, 4)            # tuple: fixed, can be used as a dict key
+x, y = point              # unpacking
+
+unique = set([1, 2, 2, 3])   # {1, 2, 3}
+unique.add(4)
+print(2 in unique)           # True, O(1) on average
+
+ages = {&quot;Bob&quot;: 25, &quot;Alice&quot;: 31}
+ages[&quot;John&quot;] = 42
+print(ages.get(&quot;Zoe&quot;, 0))    # 0 (no KeyError)
+</code></pre>
+<hr />
+<p><strong>List (dynamic array)</strong></p>
+<p>A Python list is a dynamic array: elements are stored contiguously (as references), and the array grows automatically.</p>
+<ul>
+<li>Access <code>arr[i]</code>: O(1)</li>
+<li><code>.append(x)</code>: O(1) amortized</li>
+<li><code>.pop()</code> (last element): O(1)</li>
+<li><code>.insert(i, x)</code> and <code>.pop(i)</code>: O(n), because elements must be shifted</li>
+<li><code>x in arr</code>: O(n)</li>
+</ul>
+<p>Because of that, a list is a bad choice when you often remove from the front (use a <code>deque</code> instead).</p>
+<hr />
+<p><strong>Linked list</strong></p>
+<p>A linked list is a sequence of nodes. Each node contains some data and a reference to the next node.</p>
+<pre><code class="language-python">class Node:
+    def __init__(self, data, next=None):
+        self.data = data
+        self.next = next
+</code></pre>
+<p>The last node usually has <code>next = None</code> (the equivalent of <code>NULL</code>).</p>
+<p>[Data | next] -&gt; [Data | next] -&gt; [Data | None]</p>
+<pre><code class="language-python">class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def push_front(self, data):
+        self.head = Node(data, self.head)      # O(1)
+
+    def __iter__(self):
+        current = self.head
+        while current is not None:
+            yield current.data
+            current = current.next
+
+lst = LinkedList()
+for value in (10, 20, 30):
+    lst.push_front(value)
+print(list(lst))   # [30, 20, 10]
+</code></pre>
+<p>Accessing the nth element requires traversing the list, so it is O(n).
+In practice, Python programmers rarely write linked lists: <code>list</code> and <code>deque</code> are faster in most cases (better memory locality, implemented in C).
+A linked list is mostly useful for learning, interviews, or when you need O(1) insertion in the middle while already holding a reference to a node.</p>
+<hr />
+<p><strong>Stack</strong></p>
+<p>A stack is a LIFO (Last In, First Out) structure.
+In Python, a plain <code>list</code> is a perfectly good stack:</p>
+<pre><code class="language-python">stack = []
+stack.append(10)    # push
+stack.append(20)
+stack.append(30)
+
+top = stack[-1]     # peek -&gt; 30
+print(stack.pop())  # 30
+print(stack)        # [10, 20]
+</code></pre>
+<p>Top of the stack = end of the list.</p>
+<p>[10] -&gt; [20] -&gt; [30]
+                  ↑ top</p>
+<p>Both <code>append</code> and <code>pop</code> are O(1).
+Use cases: function calls (the call stack), undo operations, expression evaluation, depth-first search.</p>
+<hr />
+<p><strong>Queue</strong></p>
+<p>A queue is a FIFO (First In, First Out) structure.
+Do <strong>not</strong> use <code>list.pop(0)</code>: it is O(n). Use <code>collections.deque</code> (double-ended queue), which has O(1) operations at both ends.</p>
+<pre><code class="language-python">from collections import deque
+
+queue = deque()
+queue.append(10)       # enqueue
+queue.append(20)
+queue.append(30)
+
+print(queue.popleft()) # dequeue -&gt; 10
+print(queue)           # deque([20, 30])
+</code></pre>
+<p>A <code>deque</code> can also be used as a stack, or as a sliding window with <code>deque(maxlen=n)</code>.
+Use cases: task scheduling, breadth-first search, buffering.</p>
+<p>Note: the module <code>queue</code> (<code>queue.Queue</code>) also exists, but it is designed for communication between threads (it has locking, which makes it slower).</p>
+<hr />
+<p><strong>Heap / priority queue</strong></p>
+<p>A heap is a binary tree stored in a list where the smallest element is always at index 0 (min-heap).
+The module <code>heapq</code> provides the functions:</p>
+<pre><code class="language-python">import heapq
+
+heap = []
+heapq.heappush(heap, 5)
+heapq.heappush(heap, 1)
+heapq.heappush(heap, 3)
+
+print(heapq.heappop(heap))   # 1 (smallest first)
+print(heap[0])               # 3 (peek)
+</code></pre>
+<ul>
+<li><code>heappush</code> / <code>heappop</code>: O(log n)</li>
+<li>peek <code>heap[0]</code>: O(1)</li>
+<li><code>heapq.heapify(list)</code>: O(n)</li>
+</ul>
+<p>For a max-heap, store negative values. For priorities, store tuples: <code>(priority, item)</code>.
+Use cases: Dijkstra, schedulers, "top k" problems (<code>heapq.nlargest</code>).</p>
+<hr />
+<p><strong>Binary tree</strong></p>
+<p>A binary tree is a tree in which each node has at most two children: a left child and a right child.</p>
+<pre><code class="language-python">class TreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+</code></pre>
+<p>For example:</p>
+<pre><code>    10
+   /  \
+  5    20
+ / \     \
+2   7     30
+</code></pre>
+<p>A binary tree is not necessarily sorted.</p>
+<p><strong>Binary Search Tree (BST)</strong></p>
+<p>In a BST:</p>
+<ul>
+<li>values smaller than the current node are stored in the left subtree;</li>
+<li>values greater than the current node are stored in the right subtree.</li>
+</ul>
+<pre><code class="language-python">def insert(node, data):
+    if node is None:
+        return TreeNode(data)
+    if data &lt; node.data:
+        node.left = insert(node.left, data)
+    elif data &gt; node.data:
+        node.right = insert(node.right, data)
+    return node
+
+def search(node, data):
+    while node is not None:
+        if data == node.data:
+            return True
+        node = node.left if data &lt; node.data else node.right
+    return False
+
+root = None
+for v in (10, 5, 20, 2, 7, 30):
+    root = insert(root, v)
+print(search(root, 7))   # True
+</code></pre>
+<p>To search for 7:</p>
+<p>7 &lt; 10  -&gt; go left
+7 &gt; 5   -&gt; go right
+7 found</p>
+<p>When the tree is reasonably balanced, search, insertion and deletion are O(log n).
+However, a normal BST can become unbalanced (for example if we insert already sorted values):</p>
+<p>10
+  \
+   20
+     \
+      30
+        \
+         40</p>
+<p>In this case, performance degrades to O(n).
+Careful: recursive functions are limited by Python's recursion limit (1000 by default), so a degenerate tree with many nodes can raise a <code>RecursionError</code>.</p>
+<p><strong>In-order traversal</strong> of a BST gives the values in sorted order:</p>
+<pre><code class="language-python">def inorder(node):
+    if node:
+        yield from inorder(node.left)
+        yield node.data
+        yield from inorder(node.right)
+
+print(list(inorder(root)))   # [2, 5, 7, 10, 20, 30]
+</code></pre>
+<hr />
+<p><strong>AVL tree</strong></p>
+<p>An AVL tree is a self-balancing BST. Each node stores its height:</p>
+<pre><code class="language-python">class AVLNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.height = 1
+</code></pre>
+<p>An AVL tree maintains the following property for every node:</p>
+<p>|height(left subtree) - height(right subtree)| &lt;= 1</p>
+<p>When an insertion or deletion breaks this property, the tree performs rotations to restore the balance.</p>
+<pre><code> 30                20
+/                 /  \
+</code></pre>
+<p>20       -&gt;       10    30
+ /
+10</p>
+<p>This is a right rotation:</p>
+<pre><code class="language-python">def height(node):
+    return node.height if node else 0
+
+def rotate_right(y):
+    x = y.left
+    y.left = x.right
+    x.right = y
+    y.height = 1 + max(height(y.left), height(y.right))
+    x.height = 1 + max(height(x.left), height(x.right))
+    return x          # new root of this subtree
+</code></pre>
+<p>Search, insertion and deletion are O(log n) in the worst case.
+Python has no balanced tree in its standard library. In practice, use <code>sorted</code> + <code>bisect</code> for static data, or the third-party library <code>sortedcontainers</code> (<code>SortedList</code>, <code>SortedDict</code>).</p>
+<hr />
+<p><strong>Hash table</strong></p>
+<p>A hash table stores and retrieves values using a key.
+The idea is to use a hash function to convert a key into an index in an array.</p>
+<p>In Python, hash tables are built in: <code>dict</code> and <code>set</code> are both hash tables.</p>
+<pre><code class="language-python">ages = {&quot;Bob&quot;: 25, &quot;Alice&quot;: 31, &quot;John&quot;: 42}
+print(ages[&quot;Bob&quot;])      # 25, O(1) on average
+</code></pre>
+<p>Internally:</p>
+<p>hash("Bob")   -&gt; some integer -&gt; index in an internal array
+hash("Alice") -&gt; another integer -&gt; another index</p>
+<p>This allows us to find a value very quickly instead of searching through every element.
+In a well-designed hash table, insertion, deletion and lookup are O(1) on average.</p>
+<p><strong>Hash function</strong></p>
+<p>The built-in <code>hash()</code> returns an integer:</p>
+<pre><code class="language-python">print(hash(42))        # 42
+print(hash(&quot;Alice&quot;))   # different at each run!
+</code></pre>
+<p>The hash of a <code>str</code> is randomized at each Python process (security feature, can be fixed with <code>PYTHONHASHSEED</code>), so never rely on its value or on the order it would give.</p>
+<p>A simple hash function, equivalent to the C version:</p>
+<pre><code class="language-python">def my_hash(key: str) -&gt; int:
+    result = 0
+    for char in key:
+        result = result * 31 + ord(char)
+    return result
+
+index = my_hash(&quot;Alice&quot;) % 10    # table_size = 10
+</code></pre>
+<p><strong>Hashable objects</strong></p>
+<p>To be used as a dict key or a set element, an object must be <em>hashable</em>: it must have a stable hash, so it must be immutable (or at least never change its hash).</p>
+<pre><code class="language-python">d = {}
+d[(1, 2)] = &quot;ok&quot;       # tuple: OK
+d[[1, 2]] = &quot;error&quot;    # TypeError: unhashable type: 'list'
+</code></pre>
+<ul>
+<li>Hashable: <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>, <code>tuple</code> (if its content is hashable), <code>frozenset</code></li>
+<li>Not hashable: <code>list</code>, <code>dict</code>, <code>set</code></li>
+</ul>
+<p>For your own classes, define <code>__eq__</code> and <code>__hash__</code> together (two objects that are equal must have the same hash).</p>
+<p><strong>Collision</strong></p>
+<p>Two different keys can produce the same index.</p>
+<p>hash("Alice") % 10 -&gt; 6
+hash("Bob")   % 10 -&gt; 6</p>
+<p>A hash table needs a way to handle collisions. There are two common approaches.</p>
+<p><strong>Separate chaining</strong></p>
+<p>Each position of the array contains a linked list (or a list) of entries.</p>
+<p>Index 0 -&gt; None
+Index 1 -&gt; None
+Index 2 -&gt; [Bob, 25] -&gt; [Alice, 31]
+Index 3 -&gt; [John, 42]</p>
+<p>A possible implementation:</p>
+<pre><code class="language-python">class HashTable:
+    def __init__(self, size=8):
+        self.size = size
+        self.buckets = [[] for _ in range(size)]   # list of buckets
+        self.count = 0
+
+    def _index(self, key):
+        return hash(key) % self.size
+
+    def put(self, key, value):
+        bucket = self.buckets[self._index(key)]
+        for i, (k, _) in enumerate(bucket):
+            if k == key:
+                bucket[i] = (key, value)    # update
+                return
+        bucket.append((key, value))
+        self.count += 1
+
+    def get(self, key, default=None):
+        for k, v in self.buckets[self._index(key)]:
+            if k == key:
+                return v
+        return default
+
+table = HashTable()
+table.put(&quot;Bob&quot;, 25)
+table.put(&quot;Alice&quot;, 31)
+print(table.get(&quot;Bob&quot;))   # 25
+</code></pre>
+<p><strong>Open addressing</strong></p>
+<p>All entries are stored directly inside the array. If a position is already occupied, the table looks for another free position.</p>
+<p>hash("Alice") -&gt; 3
+index 3 is occupied
+        ↓
+try index 4
+        ↓
+index 4 is free
+        ↓
+store Alice at index 4</p>
+<p>Ways to choose the next position: linear probing, quadratic probing, double hashing.</p>
+<p>With linear probing:</p>
+<p>index
+  3 -&gt; occupied
+  4 -&gt; occupied
+  5 -&gt; free</p>
+<p>So the element is stored at index 5.</p>
+<p>CPython's <code>dict</code> and <code>set</code> use open addressing (with a pseudo-random probing sequence, not plain linear probing).
+Since Python 3.6, a dict stores its entries in a compact array in insertion order, plus a sparse index array: this is why dicts keep insertion order and use less memory.</p>
+<p><strong>Load factor</strong></p>
+<p>A hash table should not become too full.</p>
+<p>load factor = number of elements / table size</p>
+<p>10 elements
+20 slots</p>
+<p>load factor = 10 / 20 = 0.5</p>
+<p>When the load factor becomes too high, collisions become more frequent and the table becomes slower.
+The table is then resized:</p>
+<p>small table
+     ↓
+too many elements
+     ↓
+create a bigger table
+     ↓
+rehash all elements
+     ↓
+new table</p>
+<p>This operation is called rehashing. CPython does it automatically when a dict is about two-thirds full.</p>
+<p><strong>Complexity</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Operation</th>
+<th style="text-align: left;">Average</th>
+<th style="text-align: left;">Worst case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Search</td>
+<td style="text-align: left;">O(1)</td>
+<td style="text-align: left;">O(n)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Insert</td>
+<td style="text-align: left;">O(1) amortized</td>
+<td style="text-align: left;">O(n)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Delete</td>
+<td style="text-align: left;">O(1)</td>
+<td style="text-align: left;">O(n)</td>
+</tr>
+</tbody>
+</table>
+<p>The worst case happens when many keys collide. The quality of the hash function and the way collisions are handled have a major impact on performance.</p>
+<p><strong>Useful dict-like structures (module <code>collections</code>)</strong></p>
+<pre><code class="language-python">from collections import defaultdict, Counter
+
+# defaultdict: automatic default value
+groups = defaultdict(list)
+groups[&quot;a&quot;].append(1)          # no KeyError
+
+# Counter: counting occurrences
+c = Counter(&quot;abracadabra&quot;)
+print(c.most_common(2))        # [('a', 5), ('b', 2)]
+</code></pre>
+<p>Use cases: dictionaries, caches (<code>functools.lru_cache</code>), symbol tables, counting occurrences, grouping, removing duplicates (<code>set</code>), fast membership tests.</p>
+<p>A <code>set</code> is a hash table that only stores keys:</p>
+<pre><code class="language-python">usernames = {&quot;Alice&quot;, &quot;Bob&quot;, &quot;John&quot;}
+print(&quot;Alice&quot; in usernames)     # True, O(1) on average
+
+a, b = {1, 2, 3}, {2, 3, 4}
+print(a | b)    # union        {1, 2, 3, 4}
+print(a &amp; b)    # intersection {2, 3}
+print(a - b)    # difference   {1}
+</code></pre>
+<hr />
+<p><strong>Structured data: tuple, namedtuple, dataclass</strong></p>
+<p>To group fields (the equivalent of a C <code>struct</code>):</p>
+<pre><code class="language-python">from collections import namedtuple
+from dataclasses import dataclass
+
+Point = namedtuple(&quot;Point&quot;, [&quot;x&quot;, &quot;y&quot;])      # immutable
+p = Point(3, 4)
+print(p.x, p[1])                             # 3 4
+
+@dataclass
+class Player:                                # mutable, with __init__/__repr__ generated
+    name: str
+    score: int = 0
+
+player = Player(&quot;Alice&quot;, 2300)
+player.score += 100
+</code></pre>
+<hr />
+<p><strong>Sorted data and binary search (module <code>bisect</code>)</strong></p>
+<p>On a sorted list, <code>bisect</code> finds a position in O(log n):</p>
+<pre><code class="language-python">import bisect
+
+data = [2, 5, 7, 10, 20, 30]
+i = bisect.bisect_left(data, 7)    # 2
+bisect.insort(data, 8)             # insertion keeps the list sorted (O(n) because of shifting)
+</code></pre>
+<hr />
+<p><strong>Complexity summary</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Structure</th>
+<th style="text-align: left;">Access</th>
+<th style="text-align: left;">Search</th>
+<th style="text-align: left;">Insert</th>
+<th style="text-align: left;">Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">list</td>
+<td style="text-align: left;">O(1)</td>
+<td style="text-align: left;">O(n)</td>
+<td style="text-align: left;">O(1) at the end, O(n) elsewhere</td>
+<td style="text-align: left;">O(1) at the end, O(n) elsewhere</td>
+</tr>
+<tr>
+<td style="text-align: left;">deque</td>
+<td style="text-align: left;">O(n) in the middle</td>
+<td style="text-align: left;">O(n)</td>
+<td style="text-align: left;">O(1) at both ends</td>
+<td style="text-align: left;">O(1) at both ends</td>
+</tr>
+<tr>
+<td style="text-align: left;">linked list</td>
+<td style="text-align: left;">O(n)</td>
+<td style="text-align: left;">O(n)</td>
+<td style="text-align: left;">O(1) at the head</td>
+<td style="text-align: left;">O(1) at the head</td>
+</tr>
+<tr>
+<td style="text-align: left;">dict / set</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">O(1) avg</td>
+<td style="text-align: left;">O(1) avg</td>
+<td style="text-align: left;">O(1) avg</td>
+</tr>
+<tr>
+<td style="text-align: left;">sorted list + bisect</td>
+<td style="text-align: left;">O(1)</td>
+<td style="text-align: left;">O(log n)</td>
+<td style="text-align: left;">O(n)</td>
+<td style="text-align: left;">O(n)</td>
+</tr>
+<tr>
+<td style="text-align: left;">BST (balanced)</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">O(log n)</td>
+<td style="text-align: left;">O(log n)</td>
+<td style="text-align: left;">O(log n)</td>
+</tr>
+<tr>
+<td style="text-align: left;">heap (<code>heapq</code>)</td>
+<td style="text-align: left;">O(1) min</td>
+<td style="text-align: left;">O(n)</td>
+<td style="text-align: left;">O(log n)</td>
+<td style="text-align: left;">O(log n)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Important idea</strong></p>
+<p>A hash table trades some memory for very fast access.</p>
+<p>Compared with a list, a sorted list or a balanced tree:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Structure</th>
+<th style="text-align: left;">Property</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">list</td>
+<td style="text-align: left;">simple, compact, O(n) search</td>
+</tr>
+<tr>
+<td style="text-align: left;">sorted list</td>
+<td style="text-align: left;">O(log n) search, but insertion can be expensive</td>
+</tr>
+<tr>
+<td style="text-align: left;">BST</td>
+<td style="text-align: left;">O(log n) if balanced</td>
+</tr>
+<tr>
+<td style="text-align: left;">dict / set</td>
+<td style="text-align: left;">O(1) average lookup</td>
+</tr>
+</tbody>
+</table>
+<p>Since Python 3.7, a dict remembers insertion order, but it is not sorted by key.
+If you need to iterate in sorted order, use <code>sorted(d)</code>, or a structure like <code>SortedDict</code> from <code>sortedcontainers</code>.</p>
+<p><strong>Which one should I use?</strong></p>
+<ul>
+<li>Ordered collection, access by index: <code>list</code></li>
+<li>Fixed, immutable group of values: <code>tuple</code></li>
+<li>Fast lookup by key: <code>dict</code></li>
+<li>Uniqueness, fast membership test, set operations: <code>set</code></li>
+<li>Stack: <code>list</code></li>
+<li>Queue: <code>collections.deque</code></li>
+<li>Priority queue: <code>heapq</code></li>
+<li>Counting: <code>collections.Counter</code></li>
+<li>Always sorted data: <code>bisect</code> or <code>sortedcontainers</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.top", "search.suggest", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
