@@ -1,4 +1,4 @@
-# ChearSheet
+# CheatSheet
 
 Welcome to my little collection of programming cheatsheets!
 
